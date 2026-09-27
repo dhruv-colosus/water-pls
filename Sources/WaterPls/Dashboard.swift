@@ -5,6 +5,9 @@ struct Dashboard: View {
     @State private var settings = false
     @State private var customEntry = false
     @State private var custom = ""
+    @State private var editingToday = false
+    @State private var editedToday = ""
+    @State private var confirmingReset = false
     @State private var selectedDay: Date?
     @State private var justLogged = false
     private let blue = Color.blue
@@ -24,7 +27,37 @@ struct Dashboard: View {
             VStack(alignment: .leading, spacing: 22) {
                 HStack(alignment: .top) {
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("Today’s water").font(.system(size: 18, weight: .semibold))
+                        HStack(spacing: 12) {
+                            Text("Today’s water").font(.system(size: 18, weight: .semibold))
+                            Button("Edit") {
+                                editedToday = String(model.today)
+                                editingToday = true
+                            }
+                            .buttonStyle(.link)
+                            .accessibilityLabel("Edit today's water total")
+                            .popover(isPresented: $editingToday) {
+                                VStack(alignment: .leading, spacing: 12) {
+                                    Text("Edit today’s water").font(.headline)
+                                    HStack {
+                                        TextField("Total", text: $editedToday)
+                                            .textFieldStyle(.roundedBorder)
+                                            .onSubmit(saveTodayTotal)
+                                            .accessibilityLabel("Today's water total in millilitres")
+                                        Text("ml").foregroundStyle(.secondary)
+                                    }
+                                    Text("Set today’s total (0–100,000 ml).")
+                                        .font(.caption).foregroundStyle(.secondary)
+                                    HStack {
+                                        Button("Reset today", role: .destructive) { confirmingReset = true }
+                                            .disabled(model.today == 0)
+                                        Spacer()
+                                        Button("Save", action: saveTodayTotal)
+                                            .buttonStyle(.borderedProminent)
+                                            .disabled(validTodayTotal == nil)
+                                    }
+                                }.padding(20).frame(width: 270)
+                            }
+                        }
                         HStack(alignment: .firstTextBaseline, spacing: 6) {
                             Text(model.today.formatted()).font(.system(size: 48, weight: .semibold, design: .rounded)).monospacedDigit()
                             Text("/ \(model.preferences.goal.formatted()) ml").foregroundStyle(.secondary)
@@ -108,8 +141,25 @@ struct Dashboard: View {
         }
         .padding(28).frame(width: 700).background(Color(nsColor: .windowBackgroundColor)).tint(blue)
         .sheet(isPresented: $settings) { HydrationSettings(model: model) }
+        .alert("Reset today’s water?", isPresented: $confirmingReset) {
+            Button("Reset", role: .destructive) {
+                model.setTodayTotal(0)
+                editingToday = false
+                justLogged = false
+            }
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text("This removes all water logged today.")
+        }
     }
     private var validAmount: Int? { Int(custom).flatMap { (1...2000).contains($0) ? $0 : nil } }
+    private var validTodayTotal: Int? { Int(editedToday).flatMap { (0...100_000).contains($0) ? $0 : nil } }
+    private func saveTodayTotal() {
+        guard let amount = validTodayTotal else { return }
+        model.setTodayTotal(amount)
+        editingToday = false
+        justLogged = false
+    }
     private func logCustom() {
         guard let amount = validAmount else { return }
         model.log(amount); custom = ""; customEntry = false; justLogged = true

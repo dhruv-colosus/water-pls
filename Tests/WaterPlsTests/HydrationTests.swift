@@ -33,6 +33,26 @@ final class HydrationTests: XCTestCase {
         XCTAssertEqual(model.today, 2000)
         XCTAssertEqual(Hydration(defaults: defaults).today, 2000)
     }
+    func testEditingAndResettingTodayPreservesEarlierDrinks() throws {
+        let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date())!
+        defaults.set(try JSONEncoder().encode([Drink(date: yesterday, millilitres: 500)]), forKey: "water-pls.drinks")
+        let model = Hydration(defaults: defaults)
+        model.log(250)
+        model.log(100)
+        model.setTodayTotal(750)
+        XCTAssertEqual(model.today, 750)
+        XCTAssertEqual(model.total(on: yesterday), 500)
+        XCTAssertEqual(model.drinks.count, 2)
+        XCTAssertEqual(model.remaining, 1250)
+        XCTAssertEqual(Hydration(defaults: defaults).today, 750)
+
+        model.setTodayTotal(0)
+        XCTAssertEqual(model.today, 0)
+        XCTAssertEqual(model.total(on: yesterday), 500)
+        XCTAssertEqual(Hydration(defaults: defaults).today, 0)
+        model.setTodayTotal(-1)
+        XCTAssertEqual(model.today, 0)
+    }
     func testPacingAndPreferencesPersist() {
         let model = Hydration(defaults: defaults)
         XCTAssertEqual(model.suggestedInterval, 3600)

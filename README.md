@@ -15,7 +15,7 @@ You can also open `Package.swift` in Xcode. The build script creates an ad-hoc s
 
 ## Dashboard and reminders
 
-The native SwiftUI dashboard follows macOS light/dark appearance automatically. It shows today's intake, the remaining daily goal, quick 100/250/500 ml logging, a custom amount popover, and undo for the latest drink. The seven-day chart uses blue for intake and pale blue for the remaining goal. Select a day for its exact amount. Empty days stay empty; older entries without a recorded goal do not get a made-up target.
+The native SwiftUI dashboard follows macOS light/dark appearance automatically. It shows today's intake, the remaining daily goal, quick 100/250/500 ml logging, a custom amount popover, and undo for the latest drink. Use **Edit** beside today's total to set an exact total or reset it to zero. The seven-day chart uses blue for intake and pale blue for the remaining goal. Select a day for its exact amount. Empty days stay empty; older entries without a recorded goal do not get a made-up target.
 
 Open **Goal & reminders** with the slider button. Settings, drink history, daily goal snapshots, and measured active time persist locally in UserDefaults. Changing the goal only updates today's target. Existing drink entries are retained.
 

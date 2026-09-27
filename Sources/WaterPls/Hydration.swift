@@ -137,6 +137,14 @@ final class Hydration: ObservableObject {
         save(drinks, key: "drinks")
         onScheduleChange?()
     }
+    func setTodayTotal(_ amount: Int) {
+        guard (0...100_000).contains(amount) else { return }
+        refreshDay()
+        drinks.removeAll { Calendar.current.isDateInToday($0.date) }
+        if amount > 0 { drinks.append(Drink(date: Date(), millilitres: amount)) }
+        save(drinks, key: "drinks")
+        onScheduleChange?()
+    }
     func undoLastDrink() {
         guard let last = drinks.last, Calendar.current.isDateInToday(last.date) else { return }
         drinks.removeLast()
