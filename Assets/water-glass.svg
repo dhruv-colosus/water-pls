@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72" fill="none">
+  <title>Water glass</title>
+  <path d="M17 26C30 17 39 37 56 29L53 59Q53 65 46 65H26Q19 65 19 59Z" fill="#00C0E8" fill-opacity=".24"/>
+  <path d="M17 26C30 17 39 37 56 29" stroke="#00C0E8" stroke-width="4" stroke-linecap="round"/>
+  <path d="M22 7H50Q58 7 58 14L54 59Q54 66 46 66H26Q18 66 18 59L14 14Q14 7 22 7Z" stroke="#FFFFFF" stroke-opacity=".9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
