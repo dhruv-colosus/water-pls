@@ -34,13 +34,13 @@ export default function Home() {
         Skip to content
       </a>
       <SiteHeader>
-        <Link className="brand" href="/" aria-label="Water, pls home">
+        <Link className="brand" href="/" aria-label="Water, pls home" target="_blank" rel="noopener noreferrer">
           <Image src="/icon.png" width={28} height={28} alt="" />
           <span>Water, pls<span className="brand-dot">.</span></span>
         </Link>
         <nav aria-label="Main navigation">
-          <a href="#features">Features</a>
-          <a href={github}>GitHub</a>
+          <a href="#features" target="_blank" rel="noopener noreferrer">Features</a>
+          <a href={github} target="_blank" rel="noopener noreferrer">GitHub</a>
         </nav>
         <DownloadButton />
       </SiteHeader>
@@ -58,7 +58,7 @@ export default function Home() {
             </p>
             <div className="actions">
               <DownloadButton />
-              <a className="button secondary" href={github}>
+              <a className="button secondary" href={github} target="_blank" rel="noopener noreferrer">
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -201,12 +201,12 @@ export default function Home() {
         </section>
       </main>
       <footer className="site-footer wrap">
-        <Link className="brand" href="/">
+        <Link className="brand" href="/" target="_blank" rel="noopener noreferrer">
           <Image src="/icon.png" width={22} height={22} alt="" />
           Water, pls.
         </Link>
         <span>A little care, built into your day.</span>
-        <a href={github}>
+        <a href={github} target="_blank" rel="noopener noreferrer">
           Made in the open
         </a>
       </footer>

@@ -54,7 +54,8 @@
   align-items: center;
   gap: 8px;
   color: #727880;
-  font-size: 13px;
+  font-size: 14.3px;
+  font-weight: 500;
   letter-spacing: 0;
 }
 
@@ -106,7 +107,7 @@
     grid-column: 1 / -1;
     grid-row: 2;
     justify-content: center;
-    font-size: 12px;
+    font-size: 13.2px;
   }
 
   .header nav a {

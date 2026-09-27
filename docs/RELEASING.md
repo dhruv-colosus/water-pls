@@ -8,14 +8,14 @@ From the repository root on a Mac with Xcode command-line tools:
 
 ```sh
 ./scripts/package-dmg.sh
-open build/WaterPls-v0.1.1-macOS-arm64.dmg
+open build/Water-pls-0.1.1.dmg
 ```
 
 Drag `WaterPls.app` onto the Applications shortcut, then open it from Applications. The script builds the native executable, embeds the icon and version, signs the app, creates and verifies a compressed DMG, and generates:
 
-- `build/WaterPls-v0.1.1-macOS-arm64.dmg`
-- `build/WaterPls-v0.1.1-macOS-arm64.dmg.sha256`
-- `website/public/downloads/WaterPls-v0.1.1-macOS-arm64.dmg`
+- `build/Water-pls-0.1.1.dmg`
+- `build/Water-pls-0.1.1.dmg.sha256`
+- `website/public/downloads/Water-pls-0.1.1.dmg`
 - `website/src/app/release.json`
 - `Casks/water-pls.rb`, with the actual SHA-256 checksum
 
@@ -55,8 +55,8 @@ gh auth login
 git tag v0.1.1
 git push origin v0.1.1
 gh release create v0.1.1 \
-  build/WaterPls-v0.1.1-macOS-arm64.dmg \
-  build/WaterPls-v0.1.1-macOS-arm64.dmg.sha256 \
+  build/Water-pls-0.1.1.dmg \
+  build/Water-pls-0.1.1.dmg.sha256 \
   --verify-tag \
   --title 'Water, pls 0.1.1' \
   --notes 'Native hydration reminders for Apple silicon, macOS 14+. Open the DMG and drag WaterPls.app into Applications. This build is ad-hoc signed and is not Apple-notarized; macOS may require approval in System Settings > Privacy & Security.'
@@ -68,7 +68,7 @@ Verify the published bytes match the cask:
 
 ```sh
 curl --fail --location \
-  https://github.com/dhruv-colosus/water-pls/releases/download/v0.1.1/WaterPls-v0.1.1-macOS-arm64.dmg \
+  https://github.com/dhruv-colosus/water-pls/releases/download/v0.1.1/Water-pls-0.1.1.dmg \
   --output /tmp/WaterPls-release.dmg
 shasum -a 256 /tmp/WaterPls-release.dmg
 ```

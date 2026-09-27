@@ -795,7 +795,6 @@ h1 { font-size: clamp(44px, 5.6vw, 70px); font-weight: 550; line-height: 1.06; l
 .notch-stem { width: 150px; height: 25px; border-radius: 0 0 9px 9px; background: #090b0d; z-index: 2; }
 .notch-panel { position: absolute; top: 0; left: 50%; margin: 0; transform: translateX(-50%); width: 358px; height: 176px; min-height: 0; padding: 0; border: 0; border-radius: 0 0 25px 25px; background: #090b0d; overflow: hidden; z-index: 3; animation: notch-expand 1.1s 1.2s cubic-bezier(.22,1,.36,1) both; }
 .notch-content { width: 358px; max-width: 100%; padding: 36px 19px 15px; animation: notch-reveal .5s 1.7s ease both; }
-.notch-panel:focus-within, .notch-panel:focus-within .notch-content { animation: none; }
 @keyframes notch-expand {
   from { width: 150px; height: 25px; border-radius: 0 0 9px 9px; box-shadow: 0 0 0 transparent; }
   to { width: 358px; height: 176px; border-radius: 0 0 25px 25px; box-shadow: 0 15px 35px #1b253633; }

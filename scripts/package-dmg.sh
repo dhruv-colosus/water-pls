@@ -7,7 +7,7 @@ if [[ -n "${NOTARY_PROFILE:-}" && -z "${SIGNING_IDENTITY:-}" ]]; then
 fi
 ./scripts/build.sh
 VERSION=$(<VERSION)
-FILENAME="WaterPls-v${VERSION}-macOS-arm64.dmg"
+FILENAME="Water-pls-${VERSION}.dmg"
 DMG="$PWD/build/$FILENAME"
 STAGING=$(mktemp -d "$PWD/build/dmg-staging.XXXXXX")
 trap 'rm -rf "$STAGING"' EXIT
@@ -45,7 +45,7 @@ cask "water-pls" do
   version "$VERSION"
   sha256 "$SHA256"
 
-  url "https://github.com/dhruv-colosus/water-pls/releases/download/v#{version}/WaterPls-v#{version}-macOS-arm64.dmg"
+  url "https://github.com/dhruv-colosus/water-pls/releases/download/v#{version}/Water-pls-#{version}.dmg"
   name "Water, pls"
   desc "Native hydration tracker with MacBook notch reminders"
   homepage "https://github.com/dhruv-colosus/water-pls"
