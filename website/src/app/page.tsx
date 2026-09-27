@@ -1,0 +1,222 @@
+import Image from "next/image";
+import Link from "next/link";
+import NotchDemo from "./notch-demo";
+import release from "./release.json";
+
+const github = "https://github.com/dhruv-colosus/water-pls";
+const download = release.download;
+
+function Arrow() {
+  return <span aria-hidden="true">↗</span>;
+}
+function Apple() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.1 12.7c0-2 1.6-3 1.7-3.1-1-1.5-2.6-1.7-3.2-1.7-1.4-.2-2.6.8-3.3.8-.7 0-1.7-.8-2.8-.7-1.5 0-2.8.8-3.6 2.1-1.5 2.6-.4 6.5 1.1 8.6.7 1 1.5 2.1 2.6 2 1.1 0 1.5-.7 2.9-.7 1.3 0 1.7.7 2.9.7s1.9-1 2.6-2c.8-1.2 1.2-2.4 1.2-2.5-.1 0-2.1-.8-2.1-3.5ZM14.9 6.5c.6-.8 1.1-1.9 1-3-.9 0-2 .6-2.7 1.4-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.5 2.7-1.3Z" />
+    </svg>
+  );
+}
+
+export default function Home() {
+  return (
+    <>
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+      <header className="site-header wrap">
+        <Link className="brand" href="/" aria-label="Water, pls home">
+          <Image src="/icon.png" width={28} height={28} alt="" />
+          <span>
+            Water, pls<span className="brand-dot">.</span>
+          </span>
+        </Link>
+        <nav aria-label="Main navigation">
+          <a className="nav-feature" href="#features">
+            The little things
+          </a>
+          <a href={github}>
+            GitHub <Arrow />
+          </a>
+          <a className="nav-download" href={download} download>
+            Get the app <Arrow />
+          </a>
+        </nav>
+      </header>
+      <main id="main">
+        <section className="hero" aria-labelledby="hero-title">
+          <div className="hero-copy wrap">
+            <a className="announcement" href={github}>
+              <span className="status-dot" /> Small app. Better habits.{" "}
+              <span className="announcement-divider" /> Free & open source{" "}
+              <Arrow />
+            </a>
+            <h1 id="hero-title">
+              In your flow.
+              <br />
+              <span>On your hydration.</span>
+            </h1>
+            <p className="intro">
+              A gentle nudge to drink water, right from your MacBook notch.
+              <br className="desktop-break" /> One click to log a glass. Then
+              back to your thing.
+            </p>
+            <div className="actions">
+              <a className="button primary" href={download} download>
+                <Apple /> Download for Mac <span className="button-divider" />{" "}
+                Free
+              </a>
+              <a className="button secondary" href={github}>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  aria-hidden="true"
+                >
+                  <path d="m12 3 2.8 5.7 6.3.9-4.6 4.5 1.1 6.3-5.6-3-5.6 3 1.1-6.3L3 9.6l6.2-.9Z" />
+                </svg>
+                Star on GitHub <Arrow />
+              </a>
+            </div>
+            <p className="platform-note">
+              macOS 14+ <span>·</span> Apple silicon <span>·</span> No account
+              needed
+            </p>
+          </div>
+          <div className="demo-stage wrap">
+            <NotchDemo />
+          </div>
+          <div className="trust-strip wrap">
+            <span>
+              <span aria-hidden="true">⌘</span> Made for your Mac
+            </span>
+            <span>
+              <span aria-hidden="true">◉</span> Your data stays yours
+            </span>
+            <span>
+              <span aria-hidden="true">♡</span> Free. Just because.
+            </span>
+          </div>
+        </section>
+        <section
+          className="features wrap"
+          id="features"
+          aria-labelledby="features-title"
+        >
+          <p className="eyebrow">LESS FRICTION. MORE WATER.</p>
+          <h2 id="features-title">
+            A little reminder.
+            <br />A good habit in the making.
+          </h2>
+          <p className="section-intro">
+            Thoughtfully small. Quietly helpful. Right where you need it.
+          </p>
+          <div className="feature-grid">
+            <article>
+              <div
+                className="feature-visual reminder-visual"
+                aria-hidden="true"
+              >
+                <div className="mini-notch">
+                  <span className="mini-drop">♧</span>
+                  <div>
+                    Time for a little water.
+                    <small>Your next glass is one click away.</small>
+                  </div>
+                  <span className="mini-check">✓</span>
+                </div>
+                <span className="visual-caption">
+                  A nudge, not an interruption.
+                </span>
+              </div>
+              <h3>Stay in your flow</h3>
+              <p>
+                A gentle reminder appears beneath your notch. Take a sip, log
+                it, and carry on.
+              </p>
+            </article>
+            <article>
+              <div
+                className="feature-visual progress-visual"
+                aria-hidden="true"
+              >
+                <div className="progress-heading">
+                  <span>Today’s hydration</span>
+                  <span className="progress-badge">Looking good</span>
+                </div>
+                <div className="progress-number">
+                  1,250 <span>/ 2,000 ml</span>
+                </div>
+                <div className="glass-row">
+                  {Array.from({ length: 8 }, (_, i) => (
+                    <span
+                      key={i}
+                      className={i < 5 ? "glass filled" : "glass"}
+                    />
+                  ))}
+                </div>
+                <span className="visual-caption">
+                  Every little sip adds up.
+                </span>
+              </div>
+              <h3>Make every glass count</h3>
+              <p>
+                Log a drink in one click. See your daily progress and build a
+                rhythm that feels like you.
+              </p>
+            </article>
+            <article>
+              <div className="feature-visual pace-visual" aria-hidden="true">
+                <div className="pace-row">
+                  <span className="pace-symbol">◷</span>
+                  <span>
+                    A rhythm of your own
+                    <small>Reminders that fit your day</small>
+                  </span>
+                  <span className="toggle" />
+                </div>
+                <div className="pace-options">
+                  <span>15 min</span>
+                  <span>30 min</span>
+                  <span className="chosen">45 min</span>
+                  <span>60 min</span>
+                </div>
+                <span className="visual-caption">
+                  Taking a break? So are we.
+                </span>
+              </div>
+              <h3>On your time</h3>
+              <p>
+                Set your own pace and daily goal. Reminders pause when you’re
+                away or your goal is met.
+              </p>
+            </article>
+          </div>
+        </section>
+        <section className="closing wrap" aria-labelledby="closing-title">
+          <Image src="/icon.png" width={52} height={52} alt="" />
+          <h2 id="closing-title">
+            Your next good habit
+            <br />
+            starts with a sip.
+          </h2>
+          <p>Let your Mac remember. You just bring the water.</p>
+          <a className="button primary" href={download} download>
+            <Apple /> Download for Mac <Arrow />
+          </a>
+          <span className="closing-note">Free to use. Open for everyone.</span>
+        </section>
+      </main>
+      <footer className="site-footer wrap">
+        <Link className="brand" href="/">
+          <Image src="/icon.png" width={22} height={22} alt="" />
+          Water, pls.
+        </Link>
+        <span>A little care, built into your day.</span>
+        <a href={github}>
+          Made in the open <Arrow />
+        </a>
+      </footer>
+    </>
+  );
+}

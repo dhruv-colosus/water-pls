@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Assets/water-glass.svg" width="72" height="72" alt="Water, pls glass icon">
+  <img src="Assets/AppIcon.png" width="72" height="72" alt="Water, pls droplet icon">
 </p>
 
 <h1 align="center">Water, pls</h1>
@@ -27,8 +27,8 @@ Water, pls is a small, native macOS hydration tracker. It shows a gentle reminde
 
 Requires **macOS 14 or later**. The current download is built for **Apple silicon**.
 
-1. Download `WaterPls-v0.1.0-macOS-arm64.zip` from the [latest release](https://github.com/dhruv-colosus/water-pls/releases/latest).
-2. Unzip it and move `WaterPls.app` to Applications.
+1. Click **Download for Mac** on the website to download the bundled DMG.
+2. Open the DMG and drag `WaterPls.app` onto the Applications shortcut.
 3. Open the app. It is ad-hoc signed but **not Apple-notarized**, so macOS may require you to approve opening it in **System Settings → Privacy & Security**.
 
 The app runs in the menu bar. Click the droplet to open the dashboard, preview a reminder, or quit. Closing the dashboard keeps reminders running.
@@ -54,6 +54,24 @@ open build/WaterPls.app
 ```
 
 You can also open `Package.swift` in Xcode. Run `swift test` for the hydration model tests. The build script creates an ad-hoc signed local app; it does not notarize it.
+
+## DMG and Homebrew distribution
+
+Run `./scripts/package-dmg.sh` to create the real macOS installer, refresh the website download, and generate `Casks/water-pls.rb` with its checksum. The build uses the supplied droplet icon.
+
+See [the release guide](docs/RELEASING.md) for GitHub upload commands, Apple signing/notarization, and publishing a Homebrew tap. After publishing the release and tap, users can run `brew install --cask dhruv-colosus/tap/water-pls`. The tap is not published by the build script.
+
+## Website
+
+The Next.js website lives in [`website/`](website/README.md). To run it locally:
+
+```sh
+cd website
+npm ci
+npm run dev
+```
+
+The website is built and deployed separately from the Swift app.
 
 ## Notes
 

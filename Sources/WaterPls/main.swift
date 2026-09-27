@@ -237,7 +237,7 @@ private struct SipConfirmation: View {
     }
 }
 
-final class AppDelegate: NSObject, NSApplicationDelegate {
+final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     let model = Hydration()
     var window: NSWindow!
     var panel: ReminderPanel?
@@ -273,6 +273,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 700, height: 690), styleMask: [.titled, .closable, .miniaturizable], backing: .buffered, defer: false)
         window.title = "Water, pls"
         window.isReleasedWhenClosed = false
+        window.delegate = self
         window.contentView = NSHostingView(rootView: Dashboard(model: model))
         window.center()
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
@@ -296,7 +297,17 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         schedule()
         activityTimer = Timer.scheduledTimer(withTimeInterval: 15, repeats: true) { [weak self] _ in self?.checkActivity() }
     }
-    @objc func openDashboard() { NSApp.activate(ignoringOtherApps: true); window.makeKeyAndOrderFront(nil) }
+    @objc func openDashboard() {
+        if window.contentView == nil {
+            window.contentView = NSHostingView(rootView: Dashboard(model: model))
+        }
+        NSApp.activate(ignoringOtherApps: true)
+        window.makeKeyAndOrderFront(nil)
+    }
+    func windowWillClose(_ notification: Notification) {
+        // Release the dashboard's SwiftUI view tree while only the menu-bar app is visible.
+        window.contentView = nil
+    }
     @objc func quit() { NSApp.terminate(nil) }
     func schedule() {
         reminderTimer?.invalidate()
@@ -386,7 +397,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         if model.nextReminder == nil && !locked { schedule() }
         model.expanded = false
         closeWork?.cancel()
-        let work = DispatchWorkItem { [weak self] in self?.panel?.orderOut(nil) }
+        let currentPanel = panel
+        let work = DispatchWorkItem { [weak self, weak currentPanel] in
+            guard let self, let currentPanel, self.panel === currentPanel else { return }
+            currentPanel.orderOut(nil)
+            self.panel = nil
+        }
         closeWork = work
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.55, execute: work)
     }
