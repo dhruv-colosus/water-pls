@@ -1,0 +1,148 @@
+.marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 64px;
+  pointer-events: none;
+}
+
+.space {
+  height: 100px;
+}
+
+.header {
+  position: fixed;
+  z-index: 50;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 32px;
+  width: calc(100% - 64px);
+  max-width: 1080px;
+  min-height: 72px;
+  padding: 14px 20px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  transition: max-width 320ms ease, top 320ms ease, padding 320ms ease,
+    min-height 320ms ease, background 220ms ease, border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.header[data-compact="true"] {
+  top: 16px;
+  max-width: 800px;
+  min-height: 64px;
+  padding: 10px 14px;
+  border-color: #e9ebee;
+  background: #ffffffed;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 8px 28px #18232f0c;
+}
+
+.header > a:first-child {
+  justify-self: start;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.header nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #727880;
+  font-size: 13px;
+  letter-spacing: 0;
+}
+
+.header nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: 999px;
+  transition: color 180ms ease, background 180ms ease;
+}
+
+.header nav a:hover {
+  color: #23272b;
+  background: #f1f3f5;
+}
+
+.header > a:last-child {
+  justify-self: end;
+}
+
+@media (max-width: 700px) {
+  .space {
+    height: 124px;
+  }
+
+  .header,
+  .header[data-compact="true"] {
+    top: 12px;
+    width: calc(100% - 24px);
+    grid-template-columns: 1fr auto;
+    gap: 4px 12px;
+    padding: 10px 12px 6px;
+    border-radius: 16px;
+  }
+
+  .header > a:first-child {
+    font-size: 16px;
+    gap: 6px;
+  }
+
+  .header > a:first-child img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .header nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-content: center;
+    font-size: 12px;
+  }
+
+  .header nav a {
+    min-height: 32px;
+    padding-inline: 16px;
+  }
+
+  .header > a:last-child {
+    height: 38px;
+    font-size: 11px;
+    gap: 6px;
+    padding-inline: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .header,
+  .header[data-compact="true"] {
+    padding-inline: 8px;
+    gap: 4px 6px;
+  }
+
+  .header > a:first-child {
+    font-size: 14px;
+  }
+
+  .header > a:last-child {
+    font-size: 10px;
+    padding-inline: 8px;
+    gap: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .header nav a {
+    transition: none;
+  }
+}

@@ -1,14 +1,13 @@
 import Image from "next/image";
+import { LightRays } from "@/components/ui/light-rays";
 import Link from "next/link";
 import NotchDemo from "./notch-demo";
+import SiteHeader from "./site-header";
 import release from "./release.json";
 
 const github = "https://github.com/dhruv-colosus/water-pls";
 const download = release.download;
 
-function Arrow() {
-  return <span aria-hidden="true">↗</span>;
-}
 function Apple() {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -17,54 +16,48 @@ function Apple() {
   );
 }
 
+function DownloadButton() {
+  return (
+    <a className="button primary" href={download} download>
+      <Apple /> Download for Mac <span className="button-divider" /> Free
+    </a>
+  );
+}
+
 export default function Home() {
   return (
     <>
+      <div className="top-light-rays" aria-hidden="true">
+        <LightRays count={5} color="rgba(90, 190, 225, 0.22)" blur={24} speed={18} length="620px" />
+      </div>
       <a className="skip-link" href="#main">
         Skip to content
       </a>
-      <header className="site-header wrap">
+      <SiteHeader>
         <Link className="brand" href="/" aria-label="Water, pls home">
           <Image src="/icon.png" width={28} height={28} alt="" />
-          <span>
-            Water, pls<span className="brand-dot">.</span>
-          </span>
+          <span>Water, pls<span className="brand-dot">.</span></span>
         </Link>
         <nav aria-label="Main navigation">
-          <a className="nav-feature" href="#features">
-            The little things
-          </a>
-          <a href={github}>
-            GitHub <Arrow />
-          </a>
-          <a className="nav-download" href={download} download>
-            Get the app <Arrow />
-          </a>
+          <a href="#features">Features</a>
+          <a href={github}>GitHub</a>
         </nav>
-      </header>
+        <DownloadButton />
+      </SiteHeader>
       <main id="main">
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-copy wrap">
-            <a className="announcement" href={github}>
-              <span className="status-dot" /> Small app. Better habits.{" "}
-              <span className="announcement-divider" /> Free & open source{" "}
-              <Arrow />
-            </a>
             <h1 id="hero-title">
-              In your flow.
+              Your daily reminder
               <br />
-              <span>On your hydration.</span>
+              to drink water.
             </h1>
             <p className="intro">
-              A gentle nudge to drink water, right from your MacBook notch.
-              <br className="desktop-break" /> One click to log a glass. Then
-              back to your thing.
+              A gentle nudge from your MacBook notch.
+              <br className="desktop-break" /> One click to log a glass. Right back to your day.
             </p>
             <div className="actions">
-              <a className="button primary" href={download} download>
-                <Apple /> Download for Mac <span className="button-divider" />{" "}
-                Free
-              </a>
+              <DownloadButton />
               <a className="button secondary" href={github}>
                 <svg
                   viewBox="0 0 24 24"
@@ -75,7 +68,7 @@ export default function Home() {
                 >
                   <path d="m12 3 2.8 5.7 6.3.9-4.6 4.5 1.1 6.3-5.6-3-5.6 3 1.1-6.3L3 9.6l6.2-.9Z" />
                 </svg>
-                Star on GitHub <Arrow />
+                Star on GitHub
               </a>
             </div>
             <p className="platform-note">
@@ -202,7 +195,7 @@ export default function Home() {
           </h2>
           <p>Let your Mac remember. You just bring the water.</p>
           <a className="button primary" href={download} download>
-            <Apple /> Download for Mac <Arrow />
+            <Apple /> Download for Mac
           </a>
           <span className="closing-note">Free to use. Open for everyone.</span>
         </section>
@@ -214,7 +207,7 @@ export default function Home() {
         </Link>
         <span>A little care, built into your day.</span>
         <a href={github}>
-          Made in the open <Arrow />
+          Made in the open
         </a>
       </footer>
     </>
