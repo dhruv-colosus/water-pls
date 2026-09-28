@@ -1,4 +1,6 @@
 @import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
 :root {
   color-scheme: light;
   --ink: #23272b;
@@ -361,187 +363,12 @@ h1 > span {
   font-size: 16px;
   color: #708593;
 }
-.features {
-  text-align: center;
-  border-top: 1px solid var(--line);
-  padding: 77px 24px 74px;
-}
-.eyebrow {
-  font-size: 9px;
-  letter-spacing: 0.13em;
-  color: #87949e;
-  font-weight: 550;
-  margin: 0 0 17px;
-}
 h2 {
   font-size: 39px;
   font-weight: 500;
   letter-spacing: -0.03em;
   line-height: 1.12;
   margin: 0;
-}
-.section-intro {
-  font-size: 14px;
-  letter-spacing: 0;
-  color: #868c93;
-  line-height: 1.6;
-  margin: 17px 0 34px;
-}
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  text-align: left;
-}
-.feature-visual {
-  height: 166px;
-  background: linear-gradient(#f7f9fa, #f4f7f9);
-  border: 1px solid #eef0f2;
-  border-radius: 11px;
-  position: relative;
-  padding: 25px 20px;
-  overflow: hidden;
-  letter-spacing: 0;
-}
-.mini-notch {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #22292f;
-  border-radius: 0 0 13px 13px;
-  padding: 17px 12px;
-  color: #edf3f8;
-  font-size: 10px;
-  box-shadow: 0 10px 15px #253c4812;
-  margin: -26px 0 0;
-}
-.mini-drop {
-  font-size: 26px;
-  color: #6ad2f4;
-}
-.mini-notch small {
-  display: block;
-  font-size: 7px;
-  color: #97a5b0;
-  margin-top: 4px;
-}
-.mini-check {
-  background: #4bc6eb;
-  border-radius: 50%;
-  color: #184956;
-  padding: 2px 5px;
-  margin-left: auto;
-}
-.visual-caption {
-  position: absolute;
-  bottom: 22px;
-  left: 0;
-  right: 0;
-  text-align: center;
-  font-size: 9px;
-  color: #929ea8;
-}
-.progress-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 9px;
-  color: #6e7c87;
-}
-.progress-badge {
-  font-size: 7px;
-  color: #4e9d8a;
-  background: #e3f2ec;
-  padding: 4px 6px;
-  border-radius: 5px;
-}
-.progress-number {
-  font-size: 23px;
-  font-weight: 550;
-  margin: 10px 0;
-}
-.progress-number span {
-  font-size: 10px;
-  color: #9ba5ae;
-  font-weight: 400;
-}
-.glass-row {
-  display: flex;
-  gap: 8px;
-}
-.glass {
-  height: 22px;
-  width: 17px;
-  border: 1px solid #c9d6de;
-  border-radius: 2px 2px 5px 5px;
-  transform: perspective(40px) rotateX(-12deg);
-}
-.glass.filled {
-  background: linear-gradient(white 30%, #80d2ed 32%, #bde8f5);
-  border-color: #a2d4e5;
-}
-.pace-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 9px;
-  color: #52616d;
-  margin: 5px 0 18px;
-}
-.pace-symbol {
-  font-size: 23px;
-  color: #6b95ac;
-}
-.pace-row small {
-  display: block;
-  font-size: 7px;
-  color: #96a2ab;
-  margin-top: 3px;
-}
-.toggle {
-  width: 25px;
-  height: 14px;
-  border-radius: 9px;
-  background: #6ac5e3;
-  margin-left: auto;
-}
-.toggle:after {
-  content: "";
-  display: block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: white;
-  margin: 2px 2px 2px auto;
-}
-.pace-options {
-  display: flex;
-  justify-content: space-between;
-  gap: 6px;
-  font-size: 9px;
-  color: #95a2ab;
-}
-.pace-options span {
-  padding: 5px 8px;
-}
-.pace-options .chosen {
-  background: white;
-  box-shadow: 0 1px 5px #44596d14;
-  border-radius: 5px;
-  color: #468cac;
-}
-.feature-grid h3 {
-  font-size: 17px;
-  font-weight: 550;
-  margin: 22px 0 9px;
-}
-.feature-grid article > p {
-  font-size: 13px;
-  letter-spacing: 0;
-  color: #878d94;
-  line-height: 1.7;
-  margin: 0;
-  max-width: 285px;
 }
 .closing {
   text-align: center;
@@ -616,7 +443,6 @@ h2 {
 .site-footer {
     margin-inline: 32px;
   }
-  .features,
   .closing {
     margin-inline: 24px;
   }
@@ -665,35 +491,6 @@ h2 {
   }
   .trust-strip > span > span {
     font-size: 12px;
-  }
-  .features {
-    padding: 52px 0;
-  }
-  .features h2 {
-    font-size: 33px;
-  }
-  .section-intro {
-    font-size: 12px;
-  }
-  .feature-grid {
-    grid-template-columns: 1fr;
-    gap: 31px;
-    max-width: 390px;
-    margin: auto;
-  }
-  .feature-visual {
-    height: 166px;
-    padding-inline: 27px;
-  }
-  .mini-notch {
-    max-width: 255px;
-    margin-inline: auto;
-  }
-  .feature-grid h3 {
-    margin-top: 16px;
-  }
-  .feature-grid article > p {
-    max-width: none;
   }
   .closing {
     padding: 49px 12px;
@@ -819,8 +616,6 @@ h1 { font-size: clamp(44px, 5.6vw, 70px); font-weight: 550; line-height: 1.06; l
 }
 @media (prefers-reduced-motion: reduce) { .notch-panel, .notch-content { animation: none; } }
 
-
-
 /* Soft rays descend from the page edge behind the opening content. */
 body {
   position: relative;
@@ -837,4 +632,25 @@ body {
 }
 @media (max-width: 700px) {
   .top-light-rays { height: 580px; opacity: 0.75; }
+}
+
+@theme inline {
+  --animate-ripple: ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite;
+  --animate-orbit: orbit calc(var(--duration)*1s) linear infinite;
+  @keyframes ripple {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    }
+  50% {
+    transform: translate(-50%, -50%) scale(0.9);
+    }
+  }
+  @keyframes orbit {
+  0% {
+    transform: rotate(calc(var(--angle) * 1deg)) translateY(calc(var(--radius) * 1px)) rotate(calc(var(--angle) * -1deg));
+    }
+  100% {
+    transform: rotate(calc(var(--angle) * 1deg + 360deg)) translateY(calc(var(--radius) * 1px)) rotate(calc((var(--angle) * -1deg) - 360deg));
+    }
+  }
 }

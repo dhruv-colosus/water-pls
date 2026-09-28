@@ -1,0 +1,326 @@
+/* ——— Section ——— */
+.features {
+  max-width: 1080px;
+  margin-inline: auto;
+  text-align: center;
+  border-top: 1px solid var(--line);
+  padding: 88px 24px 84px;
+}
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: #6f7d88;
+  font-weight: 650;
+  margin: 0 0 18px;
+}
+.title {
+  font-size: clamp(36px, 4.4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.08;
+  margin: 0;
+  color: #1f2327;
+}
+.intro {
+  font-size: 17px;
+  letter-spacing: 0;
+  color: #6f767e;
+  line-height: 1.6;
+  margin: 20px 0 46px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  text-align: left;
+}
+.card h3 {
+  font-size: 20px;
+  font-weight: 650;
+  margin: 22px 0 8px;
+}
+.card p {
+  font-size: 15px;
+  letter-spacing: 0;
+  color: #6f767e;
+  line-height: 1.65;
+  margin: 0;
+  max-width: 310px;
+}
+
+/* ——— Shared illustration frame ——— */
+.frame {
+  position: relative;
+  border-radius: 18px;
+  padding: 5px;
+  background: #fff;
+  border: 1px solid #e6eaee;
+  box-shadow: 0 18px 40px -28px #27333e55;
+}
+.visual {
+  position: relative;
+  height: 220px;
+  border-radius: 13px;
+  overflow: hidden;
+  isolation: isolate;
+  letter-spacing: 0;
+}
+.visual svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ——— 1. Reminder: warm Sequoia dusk, like the hero wallpaper ——— */
+.reminder {
+  background:
+    radial-gradient(ellipse at 20% 110%, #ffd9b0 0, transparent 55%),
+    radial-gradient(ellipse at 95% 0, #8fb8dc 0, transparent 60%),
+    linear-gradient(150deg, #f4b98c, #e79a72 45%, #c98a86);
+}
+/* Centre the rings on the notch so they radiate out of it. */
+.ripple {
+  --foreground: #ffffff;
+  inset: -110px 0 auto;
+  height: 240px;
+  mask-image: none;
+}
+.notchWrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+}
+.notch {
+  background: #090b0d;
+  border-radius: 0 0 20px 20px;
+  overflow: hidden;
+  box-shadow: 0 14px 30px -10px #3b1d0c66;
+}
+.notchBody {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 30px 16px 0;
+  width: 236px;
+}
+.notchGlass {
+  width: 22px !important;
+  height: 30px !important;
+  flex-shrink: 0;
+}
+.bars {
+  display: grid;
+  gap: 6px;
+  flex: 1;
+}
+.bars i {
+  display: block;
+  height: 6px;
+  border-radius: 6px;
+  background: #3a3f44;
+}
+.bars i:last-child {
+  width: 60%;
+  background: #24282c;
+}
+.sipButton {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #092d37;
+  box-shadow: 0 0 18px #42bfea88;
+}
+.sipButton svg {
+  width: 16px;
+  height: 16px;
+}
+.plusOne {
+  position: absolute;
+  top: 100px;
+  right: calc(50% - 118px);
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 6px #7a3a1466;
+}
+.cursor {
+  position: absolute;
+  top: 66px;
+  left: calc(50% + 86px);
+  color: #111;
+  filter: drop-shadow(0 2px 3px #0005);
+}
+.cursor svg {
+  width: 22px;
+  height: 22px;
+  stroke: #fff;
+  stroke-width: 1.5;
+}
+
+/* ——— 2. Progress: a glass that actually fills ——— */
+.progress {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 70%, #ffffffcc 0, transparent 45%),
+    linear-gradient(160deg, #d9f3fb, #a9def0 55%, #7fc6e2);
+}
+.bigGlass {
+  width: 96px !important;
+  height: 126px !important;
+  margin-top: 26px;
+  overflow: visible;
+  filter: drop-shadow(0 12px 14px #1b5d7a33);
+}
+.wave {
+  animation: wave 2.4s linear infinite;
+}
+@keyframes wave {
+  to {
+    transform: translateX(-70px);
+  }
+}
+.drop {
+  position: absolute;
+  top: 12px;
+  left: calc(50% - 9px);
+  color: #1b9fd3;
+}
+.drop svg {
+  width: 18px !important;
+  height: 18px !important;
+}
+.mlChip {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: #0b1216;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  box-shadow: 0 8px 18px -8px #0b3a4d88;
+}
+.mlChip svg {
+  width: 11px !important;
+  height: 11px !important;
+  color: var(--blue);
+  align-self: center;
+}
+.mlChip small {
+  font-size: 11px;
+  font-weight: 500;
+  color: #8fa2ad;
+}
+
+/* ——— 3. Pace: your day in orbit ——— */
+.pace {
+  background:
+    radial-gradient(circle at 50% 50%, #fff4e6 0, transparent 40%),
+    linear-gradient(135deg, #ffd6b0, #f2b8a6 40%, #a9c6e6 80%, #8bb4dc);
+}
+.orbit {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.orbit :global(circle) {
+  stroke: #ffffff99;
+  stroke-dasharray: 3 5;
+}
+.planet {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #fff;
+  color: #d4773f;
+  box-shadow: 0 6px 14px -6px #7a3a1466;
+}
+.planet svg {
+  width: 55%;
+  height: 55%;
+}
+.water {
+  background: #0b1216;
+  color: var(--blue);
+}
+.clock {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #090b0d;
+  box-shadow:
+    0 0 0 5px #ffffff55,
+    0 10px 24px -8px #3b1d0c88;
+}
+.clock i {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  width: 3px;
+  border-radius: 3px;
+  transform-origin: 50% 100%;
+}
+.hourHand {
+  height: 11px;
+  margin-left: -1.5px;
+  background: #fff;
+  animation: spin 28s linear infinite;
+}
+.minuteHand {
+  height: 16px;
+  margin-left: -1.5px;
+  background: var(--blue);
+  animation: spin 4s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ——— Responsive ——— */
+@media (max-width: 1140px) {
+  .features {
+    margin-inline: 24px;
+  }
+}
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    max-width: 420px;
+    margin: auto;
+  }
+  .card p {
+    max-width: none;
+  }
+}
+@media (max-width: 700px) {
+  .features {
+    padding: 60px 0;
+  }
+  .intro {
+    font-size: 15px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wave,
+  .hourHand,
+  .minuteHand {
+    animation: none;
+  }
+}

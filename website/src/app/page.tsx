@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { LightRays } from "@/components/ui/light-rays";
 import Link from "next/link";
+import Features from "./features";
 import NotchDemo from "./notch-demo";
 import SiteHeader from "./site-header";
 import release from "./release.json";
@@ -91,101 +92,7 @@ export default function Home() {
             </span>
           </div>
         </section>
-        <section
-          className="features wrap"
-          id="features"
-          aria-labelledby="features-title"
-        >
-          <p className="eyebrow">LESS FRICTION. MORE WATER.</p>
-          <h2 id="features-title">
-            A little reminder.
-            <br />A good habit in the making.
-          </h2>
-          <p className="section-intro">
-            Thoughtfully small. Quietly helpful. Right where you need it.
-          </p>
-          <div className="feature-grid">
-            <article>
-              <div
-                className="feature-visual reminder-visual"
-                aria-hidden="true"
-              >
-                <div className="mini-notch">
-                  <span className="mini-drop">♧</span>
-                  <div>
-                    Time for a little water.
-                    <small>Your next glass is one click away.</small>
-                  </div>
-                  <span className="mini-check">✓</span>
-                </div>
-                <span className="visual-caption">
-                  A nudge, not an interruption.
-                </span>
-              </div>
-              <h3>Stay in your flow</h3>
-              <p>
-                A gentle reminder appears beneath your notch. Take a sip, log
-                it, and carry on.
-              </p>
-            </article>
-            <article>
-              <div
-                className="feature-visual progress-visual"
-                aria-hidden="true"
-              >
-                <div className="progress-heading">
-                  <span>Today’s hydration</span>
-                  <span className="progress-badge">Looking good</span>
-                </div>
-                <div className="progress-number">
-                  1,250 <span>/ 2,000 ml</span>
-                </div>
-                <div className="glass-row">
-                  {Array.from({ length: 8 }, (_, i) => (
-                    <span
-                      key={i}
-                      className={i < 5 ? "glass filled" : "glass"}
-                    />
-                  ))}
-                </div>
-                <span className="visual-caption">
-                  Every little sip adds up.
-                </span>
-              </div>
-              <h3>Make every glass count</h3>
-              <p>
-                Log a drink in one click. See your daily progress and build a
-                rhythm that feels like you.
-              </p>
-            </article>
-            <article>
-              <div className="feature-visual pace-visual" aria-hidden="true">
-                <div className="pace-row">
-                  <span className="pace-symbol">◷</span>
-                  <span>
-                    A rhythm of your own
-                    <small>Reminders that fit your day</small>
-                  </span>
-                  <span className="toggle" />
-                </div>
-                <div className="pace-options">
-                  <span>15 min</span>
-                  <span>30 min</span>
-                  <span className="chosen">45 min</span>
-                  <span>60 min</span>
-                </div>
-                <span className="visual-caption">
-                  Taking a break? So are we.
-                </span>
-              </div>
-              <h3>On your time</h3>
-              <p>
-                Set your own pace and daily goal. Reminders pause when you’re
-                away or your goal is met.
-              </p>
-            </article>
-          </div>
-        </section>
+        <Features />
         <section className="closing wrap" aria-labelledby="closing-title">
           <Image src="/icon.png" width={52} height={52} alt="" />
           <h2 id="closing-title">
