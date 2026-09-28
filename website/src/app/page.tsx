@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { LightRays } from "@/components/ui/light-rays";
-import Link from "next/link";
+import ScrollLink from "@/components/scroll-link";
 import Features from "./features";
 import NotchDemo from "./notch-demo";
 import SiteHeader from "./site-header";
@@ -35,12 +35,12 @@ export default function Home() {
         Skip to content
       </a>
       <SiteHeader>
-        <Link className="brand" href="/" aria-label="Water, pls home" target="_blank" rel="noopener noreferrer">
+        <ScrollLink className="brand" to="top" aria-label="Water, pls home">
           <Image src="/icon.png" width={28} height={28} alt="" />
           <span>Water, pls<span className="brand-dot">.</span></span>
-        </Link>
+        </ScrollLink>
         <nav aria-label="Main navigation">
-          <a href="#features" target="_blank" rel="noopener noreferrer">Features</a>
+          <ScrollLink to="features">Features</ScrollLink>
           <a href={github} target="_blank" rel="noopener noreferrer">GitHub</a>
         </nav>
         <DownloadButton />
@@ -108,10 +108,10 @@ export default function Home() {
         </section>
       </main>
       <footer className="site-footer wrap">
-        <Link className="brand" href="/" target="_blank" rel="noopener noreferrer">
+        <ScrollLink className="brand" to="top">
           <Image src="/icon.png" width={22} height={22} alt="" />
           Water, pls.
-        </Link>
+        </ScrollLink>
         <span>A little care, built into your day.</span>
         <a href={github} target="_blank" rel="noopener noreferrer">
           Made in the open
