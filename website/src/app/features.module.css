@@ -6,16 +6,9 @@
   border-top: 1px solid var(--line);
   padding: 88px 24px 84px;
 }
-.eyebrow {
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  color: #6f7d88;
-  font-weight: 650;
-  margin: 0 0 18px;
-}
 .title {
   font-size: clamp(36px, 4.4vw, 48px);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.045em;
   line-height: 1.08;
   margin: 0;
@@ -70,12 +63,9 @@
   height: 100%;
 }
 
-/* ——— 1. Reminder: warm Sequoia dusk, like the hero wallpaper ——— */
+/* ——— 1. Reminder: the same Sequoia desktop as the hero ——— */
 .reminder {
-  background:
-    radial-gradient(ellipse at 20% 110%, #ffd9b0 0, transparent 55%),
-    radial-gradient(ellipse at 95% 0, #8fb8dc 0, transparent 60%),
-    linear-gradient(150deg, #f4b98c, #e79a72 45%, #c98a86);
+  background: #dd9e70 url("/sequoia.jpg") center top / cover no-repeat;
 }
 /* Centre the rings on the notch so they radiate out of it. */
 .ripple {
@@ -221,11 +211,11 @@
   color: #8fa2ad;
 }
 
-/* ——— 3. Pace: your day in orbit ——— */
+/* ——— 3. Pace: a quiet, flat surface with a dot grid ——— */
 .pace {
-  background:
-    radial-gradient(circle at 50% 50%, #fff4e6 0, transparent 40%),
-    linear-gradient(135deg, #ffd6b0, #f2b8a6 40%, #a9c6e6 80%, #8bb4dc);
+  background-color: #f4f6f8;
+  background-image: radial-gradient(#d5dce2 1px, transparent 1px);
+  background-size: 14px 14px;
 }
 .orbit {
   position: absolute;
@@ -235,7 +225,7 @@
   justify-content: center;
 }
 .orbit :global(circle) {
-  stroke: #ffffff99;
+  stroke: #bfcad3;
   stroke-dasharray: 3 5;
 }
 .planet {
@@ -246,7 +236,8 @@
   border-radius: 50%;
   background: #fff;
   color: #d4773f;
-  box-shadow: 0 6px 14px -6px #7a3a1466;
+  border: 1px solid #e3e8ec;
+  box-shadow: 0 6px 14px -8px #27333e40;
 }
 .planet svg {
   width: 55%;
@@ -263,8 +254,9 @@
   border-radius: 50%;
   background: #090b0d;
   box-shadow:
-    0 0 0 5px #ffffff55,
-    0 10px 24px -8px #3b1d0c88;
+    0 0 0 6px #fff,
+    0 0 0 7px #e3e8ec,
+    0 12px 24px -10px #27333e66;
 }
 .clock i {
   position: absolute;

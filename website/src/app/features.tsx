@@ -34,7 +34,6 @@ const features: Feature[] = [
 export default function Features() {
   return (
     <section className={styles.features} id="features" aria-labelledby="features-title">
-      <p className={styles.eyebrow}>LESS FRICTION. MORE WATER.</p>
       <h2 id="features-title" className={styles.title}>
         A little reminder.
         <br />A good habit in the making.
